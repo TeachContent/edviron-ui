@@ -1,35 +1,64 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from "react";
 import { Input } from "./components/Input/Input";
-
+import { Select } from "./components/Select/Select";
+import { Form } from "./components/Form/Form";
+import { CheckboxInput } from "./components/CheckboxInput/CheckboxInput";
+import { TabUi } from "./components/Tab/Tab";
+import { Sidebar, SidebarItem } from "./components/Sidebar/Sidebar";
+import { BrowserRouter } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+import { FaSchool } from "react-icons/fa";
+import { useLocation, Link } from "react-router-dom";
+import { SmallCard } from "./components/SmallCard/SmallCard";
+import { BiDollar } from "react-icons/bi";
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [gen, setGen] = React.useState({
+    name: "Male",
+  });
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className="text-red-400 text-5xl">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <Input type="text" add_error={() => {}} />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="bg-[#A3AED0] min-h-screen">
+      <SmallCard
+        icon={<BiDollar />}
+        label={"Onboarding"}
+        labelValue={"451"}
+        smallLabel={"since last month"}
+        smallLabelValue={"+41%"}
+        status={"down"}
+      />
+      {/* <Sidebar schoolName={"Edviron"} Link={Link}>
+        <SidebarItem
+          icon={<AiFillHome className="text-2xl" />}
+          name="Dashboard"
+          to="/"
+        />
+        <SidebarItem
+          icon={<FaSchool className="text-2xl" />}
+          name="school"
+          to="/school"
+        />
+      </Sidebar> */}
+      {/* <Form onSubmit={() => {}}>
+          <Input type="text" name="Name" add_error={() => {}} required />
+          <Input type="email" name="Email" add_error={() => {}} required />
+          <Select
+            label="Gender"
+            setSelected={setGen}
+            selected={gen}
+            options={["Male", "Female"].map((d: any) => {
+              return { name: d };
+            })}
+          />
+          <CheckboxInput
+            name="class"
+            options={[1, 2, 3, 4, 5]}
+            add_error={() => {}}
+            required
+          />
+          <button>d</button>
+        </Form>
+        <TabUi /> */}
+    </div>
   );
 }
 
