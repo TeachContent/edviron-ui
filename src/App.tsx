@@ -12,12 +12,15 @@ import { FaSchool } from "react-icons/fa";
 import { useLocation, Link } from "react-router-dom";
 import { SmallCard } from "./components/SmallCard/SmallCard";
 import { BiDollar } from "react-icons/bi";
+import { _Table } from "./components/V2/Table/Table";
+import { Modal } from "./components/Modal/Modal";
 function App() {
+  const [show, setShow] = React.useState(false);
   const [gen, setGen] = React.useState({
     name: "Male",
   });
   return (
-    <div className="bg-[#A3AED0] min-h-screen">
+    <div className=" min-h-screen p-8">
       <SmallCard
         icon={<BiDollar />}
         label={"Onboarding"}
@@ -26,6 +29,23 @@ function App() {
         smallLabelValue={"+41%"}
         status={"down"}
       />
+      <_Table
+        heading={"Test Table"}
+        data={[
+          ["test1", "test2", "som", "tus", "lajs"],
+          ...["hello", "world", "hello", "world"].map((d: any) => [
+            d,
+            d,
+            d,
+            d,
+            d,
+          ]),
+        ]}
+      />
+      <button onClick={() => setShow(!show)}>Hello</button>
+      <Modal title="test" open={show} setOpen={setShow}>
+        hellow
+      </Modal>
       {/* <Sidebar schoolName={"Edviron"} Link={Link}>
         <SidebarItem
           icon={<AiFillHome className="text-2xl" />}

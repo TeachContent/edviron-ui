@@ -9,3 +9,6 @@ export {
   NestedSidebarItem,
   SidebarItem,
 } from "./src/components/Sidebar/Sidebar";
+export { Table } from "./src/components/Table/Table";
+export { Modal } from "./src/components/Modal/Modal";
+export { _Table } from "./src/components/V2/Table/Table";
